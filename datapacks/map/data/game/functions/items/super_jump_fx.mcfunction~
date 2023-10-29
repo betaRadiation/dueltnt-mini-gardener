@@ -1,0 +1,17 @@
+# cooldown & remove item
+scoreboard players set @s plaguetimer 120
+clear @s light
+
+# launch forward
+scoreboard players set $strength delta.api.launch 15000
+tp @s @s
+execute rotated ~ -40 run function delta:api/launch_looking
+scoreboard players set @s rjump 1
+
+# fx
+playsound minecraft:entity.blaze.shoot master @a[distance=..80] ~ ~ ~ 1 1.5 1
+scoreboard objectives add jump_time dummy
+scoreboard players set @s jump_time 10
+execute at @a[scores={jump_time=1..}] run particle minecraft:small_flame ~ ~ ~ 0 0 0 0 1 normal @a
+scoreboard players remove @a[scores={jump_time=2..}] jump_time 1
+scoreboard players remove @a[scores={jump_time=1},nbt={OnGround:1b}] jump_time 1
