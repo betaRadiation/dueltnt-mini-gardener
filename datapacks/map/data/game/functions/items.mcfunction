@@ -520,12 +520,9 @@ execute as @a[gamemode=adventure,scores={click=1..},nbt={SelectedItem:{id:"minec
 execute as @e[scores={BombBow=1..}] at @s run data merge entity @s {NoGravity:1}
 
 # platform
-execute as @a[gamemode=adventure,x=620,y=20,z=620,distance=..100] at @s run function game:char/gardener/gravetrap
-execute as @a[gamemode=adventure,x=620,y=20,z=620,distance=..100] at @s run function game:char/gardener/boosttrap
 
 effect clear @a wither
 
-execute as @a[gamemode=adventure,x=620,y=20,z=620,distance=..100,scores={grave=1..}] at @s run function game:char/gardener/grave
 
 # creepers and slimes
 effect give @e[name=Bomb,type=creeper,tag=!slow_disable] slow_falling 999 100 true
@@ -623,6 +620,12 @@ execute as @a[scores={ender=1..}] at @s run function game:player/enderthrow
 scoreboard players remove @a[gamemode=adventure,scores={enderreload=0..,class=1}] enderreload 1
 scoreboard players remove @a[gamemode=adventure,scores={enderreload=0..,class=2}] enderreload 1
 
+# super jump
+scoreboard objectives add jumptimer dummy
+scoreboard players remove @a[gamemode=adventure,scores={jumptimer=0..}] jumptimer 1
+item replace entity @a[gamemode=adventure,x=600,y=60,z=600,distance=3..100,scores={jumptimer=..0,class=8}] hotbar.2 with light{tnt:3b,display:{Name:'{"text":"Rocket Jump","italic":false}'}}
+execute as @a[gamemode=adventure,scores={click=1..},nbt={SelectedItem:{id:"minecraft:light"}}] at @s run function game:items/super_jump
+
 # plague
 scoreboard players set @a[gamemode=adventure,scores={plagueuse=1..,class=8},nbt={OnGround:0b}] nolev 16
 effect give @a[gamemode=adventure,scores={plagueuse=1..,class=8},nbt={OnGround:0b}] slow_falling 1 7
@@ -631,11 +634,13 @@ tag @a[gamemode=adventure,scores={plagueuse=1..}] remove checkairnade
 scoreboard players set @a[gamemode=adventure,scores={plagueuse=1..}] plaguetimer 200
 scoreboard players set @a[gamemode=adventure,scores={plagueuse=1..}] plagueuse 0
 scoreboard players remove @a[gamemode=adventure,scores={plaguetimer=0..}] plaguetimer 1
-item replace entity @a[gamemode=adventure,x=600,y=60,z=600,distance=3..100,scores={plaguetimer=0,class=8}] hotbar.2 with light{tnt:3b,display:{Name:'{"text":"Super Jump","italic":false}'}}
-execute as @a[gamemode=adventure,scores={click=1..},nbt={SelectedItem:{id:"minecraft:light"}}] at @s run function game:items/super_jump
+item replace entity @a[gamemode=adventure,x=600,y=60,z=600,distance=3..100,scores={plaguetimer=0,class=8}] hotbar.3 with minecraft:lingering_potion{Potion:"minecraft:poison",display:{Name:"{\"italic\":false,\"text\":\"§2Plague §r: Right-click\"}"}}
 item replace entity @a[gamemode=adventure,x=600,y=60,z=600,distance=3..100,scores={plaguetimer=150,class=0}] hotbar.1 with snowball{display:{Name:"{\"italic\":false,\"text\":\"§2Slimer §f§r: Right-click (hit players)\"}"}}
 clear @a[gamemode=adventure,x=600,y=60,z=600,distance=3..100,scores={class=8,plaguetimer=-1},nbt=!{Inventory:[{id:"minecraft:lingering_potion"}]}] lingering_potion
 scoreboard players set @a[gamemode=adventure,x=600,y=60,z=600,distance=3..100,scores={class=8,plaguetimer=-1},nbt=!{Inventory:[{id:"minecraft:lingering_potion"}]}] plaguetimer 1
+
+#phantom missile
+execute as @e[tag=phantommissile] at @s run function game:missile
 
 #phantom missile
 execute as @e[tag=phantommissile] at @s run function game:missile

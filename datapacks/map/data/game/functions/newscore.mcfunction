@@ -1,5 +1,6 @@
 scoreboard objectives add gardlife dummy
 scoreboard objectives add vel dummy
+scoreboard objectives add jumptimer dummy
 
 scoreboard objectives add t1 dummy
 scoreboard objectives add t2 dummy

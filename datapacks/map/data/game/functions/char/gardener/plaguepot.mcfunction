@@ -1,4 +1,8 @@
 execute as @s at @s positioned ~ ~ ~ run particle minecraft:item_snowball ~ ~ ~ .72 .72 .72 0 80 force
+execute at @s rotated ~ 0 run summon tnt ~1 ~-1 ~ {Fuse:1}
+execute at @s rotated ~ 0 run summon tnt ~-1 ~-1 ~ {Fuse:1}
+execute at @s rotated ~ 0 run summon tnt ~ ~-1 ~1 {Fuse:1}
+execute at @s rotated ~ 0 run summon tnt ~ ~-1 ~-1 {Fuse:1}
 
 execute as @s at @s positioned ~ ~-2.1 ~ run execute as @a[distance=..1.75,gamemode=adventure,scores={class=8},tag=!boosted] at @s run function game:char/gardener/plaguegar
 execute as @s at @s positioned ~ ~-1.1 ~ run execute as @a[distance=..1.75,gamemode=adventure,scores={class=8},tag=!boosted] at @s run function game:char/gardener/plaguegar
