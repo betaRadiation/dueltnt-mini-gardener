@@ -39,5 +39,5 @@ execute as @s[scores={class=7}] at @s run function game:char/echo/correct
 execute as @s[scores={class=9}] at @s run function game:char/overlord/correct
 execute as @s[scores={class=10}] at @s run function game:char/shard/correct
 
-execute unless entity @e[scores={mode=1}] run item replace entity @s[scores={nobow=3..,class=8}] hotbar.0 with minecraft:bow{Damage:220,Unbreakable:1,display:{Name:"{\"italic\":false,\"text\":\"§6Blast Jumper §r : Throw to switch\"}"},Enchantments:[{id:power,lvl:2}]}
-execute if entity @e[scores={mode=1}] run item replace entity @s[scores={nobow=3..,class=8}] hotbar.0 with minecraft:bow{Damage:220,Unbreakable:1,display:{Name:"{\"italic\":false,\"text\":\"§6Blast Jumper §r : Throw to switch\"}"},Enchantments:[{id:power,lvl:2}]}
+execute unless entity @e[scores={mode=1}] run item replace entity @s[scores={nobow=3..,class=8}] hotbar.0 with minecraft:bow{Damage:220,Unbreakable:1,display:{Name:"{\"italic\":false,\"text\":\"§6Blast Jumper §r : Throw to switch\"}"},Enchantments:[{id:punch,lvl:1}]}
+execute if entity @e[scores={mode=1}] run item replace entity @s[scores={nobow=3..,class=8}] hotbar.0 with minecraft:bow{Damage:220,Unbreakable:1,display:{Name:"{\"italic\":false,\"text\":\"§6Blast Jumper §r : Throw to switch\"}"},Enchantments:[{id:punch,lvl:1}]}

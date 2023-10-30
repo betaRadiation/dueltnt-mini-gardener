@@ -134,10 +134,10 @@ scoreboard players set @a[scores={class=7},x=620,y=20,z=620,distance=..100] bow 
 
 scoreboard players set @a plaguetimer -1
 
-execute unless entity @e[scores={mode=1}] run item replace entity @a[x=620,y=20,z=620,distance=..100,scores={class=8}] hotbar.0 with bow{Damage:220,Unbreakable:1,display:{Name:"{\"italic\":false,\"text\":\"§6Blast Jumper§r : Throw to switch\"}"},Enchantments:[{id:power,lvl:2}]}
-execute if entity @e[scores={mode=1}] run item replace entity @a[x=620,y=20,z=620,distance=..100,scores={class=8}] hotbar.0 with bow{Damage:220,Unbreakable:1,display:{Name:"{\"italic\":false,\"text\":\"§6Blast Jumper§r : Throw to switch\"}"},Enchantments:[{id:power,lvl:2}]}
+execute unless entity @e[scores={mode=1}] run item replace entity @a[x=620,y=20,z=620,distance=..100,scores={class=8}] hotbar.0 with bow{Damage:220,Unbreakable:1,display:{Name:"{\"italic\":false,\"text\":\"§6Blast Jumper§r : Throw to switch\"}"},Enchantments:[{id:punch,lvl:1}]}
+execute if entity @e[scores={mode=1}] run item replace entity @a[x=620,y=20,z=620,distance=..100,scores={class=8}] hotbar.0 with bow{Damage:220,Unbreakable:1,display:{Name:"{\"italic\":false,\"text\":\"§6Blast Jumper§r : Throw to switch\"}"},Enchantments:[{id:punch,lvl:1}]}
 
-item replace entity @a[x=620,y=20,z=620,distance=..100,scores={class=8}] hotbar.7 with arrow{display:{Name:"{\"italic\":false,\"text\":\"Not your father's Blast Off\"}"}}
+item replace entity @a[x=620,y=20,z=620,distance=..100,scores={class=8}] hotbar.7 with arrow{display:{Name:"{\"italic\":false,\"text\":\"Not your father's Blast Off\"}"}} 2
 scoreboard players set @a[scores={class=8},x=620,y=20,z=620,distance=..100] bow 0
 scoreboard players set @a[scores={class=8},x=620,y=20,z=620,distance=..100] plaguetimer 160
 item replace entity @a[x=620,y=20,z=620,distance=..100,scores={class=8}] hotbar.4 with paper{display:{Name:"{\"italic\":false,\"text\":\"§6You can now PvP with players :D\"}"}}
